@@ -1,0 +1,23 @@
+{
+    "name": "GsplatLod.Editor",
+    "rootNamespace": "GsplatLod.Editor",
+    "references": [
+        "GsplatLod",
+        "GsplatLod.XrUI",
+        "Unity.Burst",
+        "Unity.Collections",
+        "Unity.Mathematics",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

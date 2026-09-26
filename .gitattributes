@@ -1,0 +1,69 @@
+# 既定: Git に改行を正規化させる
+* text=auto
+
+# ---- ソースコード ----
+*.cs        text diff=csharp eol=lf
+*.rs        text diff=rust   eol=lf
+*.shader    text eol=lf
+*.hlsl      text eol=lf
+*.cginc     text eol=lf
+*.compute   text eol=lf
+*.md        text eol=lf
+*.json      text eol=lf
+*.toml      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.asmdef    text eol=lf
+*.gitignore text eol=lf
+
+# ---- Unity YAML ----
+# UnityYAMLMerge を使う場合の指定。Git 側の設定は CONTRIBUTING.md を参照
+*.unity          text eol=lf merge=unityyamlmerge
+*.prefab         text eol=lf merge=unityyamlmerge
+*.asset          text eol=lf merge=unityyamlmerge
+*.mat            text eol=lf merge=unityyamlmerge
+*.anim           text eol=lf merge=unityyamlmerge
+*.controller     text eol=lf merge=unityyamlmerge
+*.physicMaterial text eol=lf merge=unityyamlmerge
+*.meta           text eol=lf merge=unityyamlmerge
+*.inputactions   text eol=lf
+
+# ---- バイナリ ----
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.tif    binary
+*.tiff   binary
+*.psd    binary
+*.exr    binary
+*.hdr    binary
+*.tga    binary
+*.ttf    binary
+*.otf    binary
+*.fbx    binary
+*.obj    binary
+*.wav    binary
+*.mp3    binary
+*.ogg    binary
+*.mp4    binary
+*.dll    binary
+*.so     binary
+*.aar    binary
+*.a      binary
+*.zip    binary
+*.tar.gz binary
+*.unitypackage binary
+
+# 3DGS データフォーマット
+*.ply  binary
+*.spz  binary
+*.usst binary
+*.usc  binary
+
+# ---- GitHub linguist ----
+# 第三者由来 / Unity 生成物を言語統計と既定の差分表示から除外する
+tools/splat-pipeline/spark-lib/** linguist-vendored
+tools/splat-pipeline/build-lod/** linguist-vendored
+Assets/Samples/**                 linguist-vendored
+"Assets/TextMesh Pro/**"          linguist-vendored

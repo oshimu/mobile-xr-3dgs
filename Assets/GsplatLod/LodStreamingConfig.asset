@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0c70e6407657e45a9e8a175be531fd, type: 3}
+  m_Name: LodStreamingConfig
+  m_EditorClassIdentifier: GsplatLod::GsplatLod.LodStreamingConfig
+  BudgetSplats: 300000
+  LodTargetPixelSize: 3.2270548
+  DistanceFalloffPower: 1.5
+  OutOfFrustumFactor: 0.05
+  FoveaInnerDegrees: 15
+  FoveaOuterDegrees: 50
+  PeripheryFactor: 0.4981463
+  PoolPages: 0
+  MaxUploadBytesPerFrame: 4194304
+  MaxOrderUploadBytesPerFrame: 2097152
+  MaxConcurrentLoads: 4
+  SliceMoveThresholdMeters: 0.15
+  SliceRotateThresholdDegrees: 6
+  SliceMinIntervalFrames: 3
+  PrefetchEnabled: 1
+  ResidencyRebuildIntervalFrames: 10
+  FileHandleCacheSize: 8
+  MeasureSliceSync: 0
+  StatsLogIntervalSeconds: 1
+  FoveatedRenderingLevel: 1
+  EyeResolutionScale: 0.85
+  KernelAlphaCutoff: 0.01
+  MinPixelRadius: 0.65
+  SortMoveThresholdMeters: 0.05
+  SortRotateThresholdDegrees: 2

@@ -1,0 +1,67 @@
+name: Bug report / 不具合報告
+description: Report a problem with the runtime, the converter, or the editor tools.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        日本語・英語どちらでも構いません / Japanese or English is fine.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened / 何が起きたか
+      description: Include the exact error message or Unity Console output if there is one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected / 期待した挙動
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce / 再現手順
+      placeholder: |
+        1. Convert scene.ply with `build-lod-unity scene.ply --out ...`
+        2. Create a Streaming Object from Setup Window
+        3. Enter play mode
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / 該当箇所
+      options:
+        - Unity runtime (com.gsplat.lod)
+        - Conversion CLI (build-lod-unity)
+        - Editor tools (Setup Window)
+        - Documentation
+        - Other / わからない
+    validations:
+      required: true
+
+  - type: input
+    id: unity-version
+    attributes:
+      label: Unity version
+      placeholder: "6000.3.11f1"
+
+  - type: input
+    id: platform
+    attributes:
+      label: Platform / 実行環境
+      placeholder: "Quest 3 standalone (Android/Vulkan) / Windows Standalone / Editor"
+
+  - type: textarea
+    id: scene-info
+    attributes:
+      label: Scene data / データ情報
+      description: >
+        Source format and size, and the relevant numbers from `<name>.manifest.json`
+        (splat count, tree depth, quantization error) if the issue is conversion related.

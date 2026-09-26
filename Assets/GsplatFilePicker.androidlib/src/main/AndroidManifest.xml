@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Unity reads the module's package from this attribute when it generates the
+  library's build.gradle (AndroidProjectGradle.GetPackageFromAndroidManifest),
+  so it must stay here rather than being declared as an AGP 8 "namespace".
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.oshimu.gsplat.filepicker">
+    <application>
+        <!--
+          exported="false": only this app (via startActivity from Unity's
+          own activity) can launch this activity; it is not a public entry
+          point. Translucent/no-title theme so the SAF picker it immediately
+          launches is the only thing the user sees; this activity itself
+          never draws any UI of its own.
+        -->
+        <activity
+            android:name="com.oshimu.gsplat.GsplatFilePickerActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+</manifest>

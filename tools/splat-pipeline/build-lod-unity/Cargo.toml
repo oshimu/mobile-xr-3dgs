@@ -1,0 +1,17 @@
+[package]
+name = "build-lod-unity"
+version = "0.1.0"
+rust-version.workspace = true
+edition.workspace = true
+license = "MIT"
+
+[dependencies]
+anyhow.workspace = true
+glam.workspace = true
+half.workspace = true
+serde_json.workspace = true
+smallvec.workspace = true
+spark-lib = { path = "../spark-lib" }
+
+[dev-dependencies]
+rand_pcg.workspace = true

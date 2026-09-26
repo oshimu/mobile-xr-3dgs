@@ -1,0 +1,31 @@
+name: Feature request / 機能要望
+description: Suggest a capability or an improvement.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        日本語・英語どちらでも構いません / Japanese or English is fine.
+
+        既知の非対応項目（4DGS、スプラット編集、`.RAD` 互換）は
+        `docs/spec.md` の §1.3 を先に確認してください。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / 解決したい課題
+      description: What are you trying to do that is hard or impossible today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal / 提案
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered / 検討した代替案

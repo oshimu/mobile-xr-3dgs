@@ -1,0 +1,51 @@
+name: Rust
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/splat-pipeline/**'
+      - '.github/workflows/rust.yml'
+  pull_request:
+    paths:
+      - 'tools/splat-pipeline/**'
+      - '.github/workflows/rust.yml'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+defaults:
+  run:
+    working-directory: tools/splat-pipeline
+
+jobs:
+  test:
+    name: build & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: tools/splat-pipeline
+
+      # build-lod は spark からの vendored コードで、既定 feature が wgpu を引くため
+      # workspace の default-members から外してある。CI も同じ範囲だけを対象にする。
+      - name: Build
+        run: cargo build --locked --verbose
+
+      - name: Test
+        run: cargo test --locked --verbose
+
+      # fmt / clippy は自作クレートのみ。vendored な spark-lib は上流のまま保つ。
+      - name: Format check
+        run: cargo fmt -p build-lod-unity -p gsplat-convert-ffi -- --check
+
+      # --no-deps: vendored な spark-lib の lint は上流の責務なので対象外にする
+      - name: Clippy
+        run: cargo clippy -p build-lod-unity -p gsplat-convert-ffi --locked --no-deps --all-targets -- -D warnings

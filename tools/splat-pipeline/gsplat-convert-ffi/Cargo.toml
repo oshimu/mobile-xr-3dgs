@@ -1,0 +1,16 @@
+[package]
+name = "gsplat-convert-ffi"
+version = "0.1.0"
+rust-version.workspace = true
+edition.workspace = true
+license = "MIT"
+
+[lib]
+name = "gsplat_convert"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+anyhow = { workspace = true }
+build-lod-unity = { path = "../build-lod-unity" }
+serde = { workspace = true }
+serde_json = { workspace = true }
