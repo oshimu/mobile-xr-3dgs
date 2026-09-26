@@ -1,11 +1,14 @@
 # Mobile XR 3DGS
-
-**3D Gaussian Splatting を Android の XR 端末（Quest 3 / XREAL）で描画する Unity ランタイムと変換パイプライン。LoD とチャンク読み込みで GB 級のシーンを扱えます。**
+**3D Gaussian Splatting を Android の XR 端末（Quest 3 / XREAL + Beam Pro）で描画する Unity ランタイムと変換パイプライン。LoD とチャンク読み込みで GB 級のシーンを扱えます。**
 
 [English](#english)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Unity 6000.3](https://img.shields.io/badge/Unity-6000.3-black)
+
+
+https://github.com/user-attachments/assets/6061ac09-e9d9-4c21-befa-ed4eea996878
+
 
 ---
 
@@ -17,6 +20,13 @@
 - **未ロード領域は祖先ノードで代替** — 粗い全景を先に出し、視点周辺から精細化する
 - **描画スプラット数に上限** — 1 フレームの描画数を予算 N で打ち切る
 - **スタンドアロン動作** — Quest 3（URP / Vulkan / Single Pass Instanced）、XREAL（OpenGL ES3）
+
+plyを変換→できたファイルを実機で読み込み。
+変換はUnityのシーン上またはアプリ内で可能です。
+アプリ内で実行する場合は時間がかかります。（Questでは動作確認済み、XREALでは未確認。）
+
+UIは後ろにあります。
+右上の「変換」ボタンを押すと変換用のシーンに移動。
 
 ## 構成
 
@@ -137,8 +147,9 @@ MIT License — [LICENSE](LICENSE)
 
 # Mobile XR 3DGS (English)
 
-**A Unity runtime and conversion pipeline for rendering 3D Gaussian Splatting on Android-based XR headsets (Quest 3 / XREAL). LoD and chunked loading make gigabyte-scale scenes usable.**
+**A Unity runtime and conversion pipeline for rendering 3D Gaussian Splatting on Android-based XR headsets (Quest 3 / XREAL + Beam Pro). LoD and chunked loading make gigabyte-scale scenes usable.**
 
+https://github.com/user-attachments/assets/6061ac09-e9d9-4c21-befa-ed4eea996878
 ## Overview
 
 Scenes are converted offline into a custom LoD-tree format (`.usst` / `.usc`). At runtime, only the nodes the current viewpoint needs are loaded into a fixed-size GPU pool.
@@ -147,6 +158,13 @@ Scenes are converted offline into a custom LoD-tree format (`.usst` / `.usc`). A
 - **Unloaded regions fall back to ancestor nodes** — a coarse overview appears first and refines around the viewer
 - **Capped splat count** — draws per frame stop at budget N
 - **Standalone** — Quest 3 (URP / Vulkan / Single Pass Instanced), XREAL (OpenGL ES3)
+
+Convert the .ply file, then load the resulting file onto the actual device.
+Conversion can be performed either within the Unity scene or inside the application itself.
+Performing the conversion within the application takes some time. (Operation has been verified on Quest; it has not been tested on XREAL.)
+
+The UI is located behind you.
+Press the "Convert" button in the top-right corner to switch to the conversion scene.
 
 ## Repository layout
 
